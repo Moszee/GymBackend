@@ -18,8 +18,9 @@ public class CoachService {
     }
 
     public Integer createCoach(String firstName, String lastName, Integer age) {
-        return coachRepository.createCoach(new Coach(firstName, lastName, age));
+        return coachRepository.createCoach(new Coach(firstName, lastName, age)); //metoda tworzy Coutch i zwraca jego ID
     }
+
 
     public Coach findCoachById(Integer id) {
         return coachRepository.findById(id);
@@ -30,6 +31,14 @@ public class CoachService {
     }
 
     public Coach update(Integer coachId, String firstName, String lastName, Integer age) {
+        /*
+        nie ma create new(!!!( dlatego to jest referencja która wskazuje, już nas interesującyobiekt, przez nią zmodyfikujemy
+         obiekt który nas interesuje
+         */
+        /*repository normalnie tworzy kopie obiektów w bazie danych dlatego metoda modyfikuje pola obiektu , ale na koncu
+        i tak podmienia te obiekty w bazie danych ( przez repository.update) w ten sposób repository zapewnia nie  bezpośrednie ingeorwanie w baze danych
+
+         przez repository nie działamy bezpośrednio na danych w bazie danych ale na ich kopiach/rteprezentacjach*/
         Coach coach = coachRepository.findById(coachId);
         if(firstName != null && !firstName.isEmpty()) {
             coach.setFirstName(firstName);

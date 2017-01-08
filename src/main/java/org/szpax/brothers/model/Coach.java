@@ -26,7 +26,7 @@ public class Coach {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName = firstName; //parametr firstName w setFirstName to nie ten sam co firstName w konstruktorze!
     }
 
     public String getLastName() {
