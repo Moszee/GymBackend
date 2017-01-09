@@ -21,13 +21,35 @@ public class ClientService {
     private ClientRepository clientRepository;
     @Autowired01
             //to jest konstruktor , jak podać mu parametr klasy ClientRepository?? podobna sytuacja w repository linika 58) i 70)
-    ClientService(ClientRepository clientRepository){
+    public ClientService(ClientRepository clientRepository){
         this.clientRepository = clientRepository;
     }
+    /*
+    W tym miejscu Odbieramy Id od Clienta którego podajemy do metody creatClient w clientRepository(new Client) utworzonego
+    wg parametrów podanych tutaj poniżej
+     */
     public Integer createClient(String firstName, String lastName, Integer age){
-        return clientRepository.createClient(new Client(firstName, lastName, age)); // czy metodologia jest taka że najpierw tworzymy nullowego clienta a potem ( w tym samym ruchu w tej klasie w innym w repository przypisujemu mu parametry firstName.... ? sprawdz se to
+        return clientRepository.createClient(new Client(firstName, lastName, age));
     }
     public Client findClientById(Integer id) {
         return clientRepository.findById(id);
     }
+    public List<Client> findAll() {
+        return ClientRepository.findAll();
+        }
+    public Client update(Integer clientId, String firstName, String lastName, Integer age) {
+         Client client = clientRepository.findById(clientId);
+         if(firstName != null && !firstName.isEmpty()){
+             client.setFirstName(firstName);
+         }
+         if(lastName != null && !lastName.isEmpty()){
+             client.setLastName(lastName);
+         }
+         if(age != null){
+             client.setAge(age);
+         }
+         return clientRepository.update(client);
+
+    }
 }
+
