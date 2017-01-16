@@ -41,7 +41,7 @@ public class CoachController {
      * @return lista wszystkich trenerow
      */
     @RequestMapping("list")
-    public List<Coach> list() {
+    public List<Coach> list()  {
         return coachService.findAll();
     }
 
