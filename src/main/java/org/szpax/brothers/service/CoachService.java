@@ -52,7 +52,11 @@ public class CoachService {
 
         if(age != null) {
             coach.setAge(age);
-        }
+         }
         return coachRepository.update(coach);
+    }
+
+    public void loadFromFile(String fileName) {
+        String absolutePath = DIRECTORY + fileName;
     }
 }
