@@ -12,6 +12,8 @@ public class CoachService {
 
     private CoachRepository coachRepository;
 
+    private final static String DIRECTORY = "C:\\coach_data\\";
+
     @Autowired
     public CoachService(CoachRepository coachRepository){
         this.coachRepository = coachRepository;
