@@ -83,5 +83,10 @@ public class CoachController {
                         @RequestParam(required = false) Integer age) {
         return coachService.update(coachId, firstName, lastName, age);
     }
+    @RequestMapping("load")
+    public  void load(@RequestParam String file){
+
+
+    }
 
 }
