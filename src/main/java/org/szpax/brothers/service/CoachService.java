@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import org.szpax.brothers.model.Coach;
 import org.szpax.brothers.repository.CoachRepository;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -15,49 +17,52 @@ public class CoachService {
     private final static String DIRECTORY = "C:\\coach_data\\";
 
     @Autowired
-    public CoachService(CoachRepository coachRepository){
+    public CoachService(CoachRepository coachRepository) {
         this.coachRepository = coachRepository;
     }
 
-    public Integer createCoach(String firstName, String lastName, Integer age) {
-        Coach coach = new Coach(firstName, lastName, age);
-        return coachRepository.insertCoach(coach); //metoda tworzy Coutch i zwraca jego ID
+    public Coach createCoach(String firstName,
+                             String lastName,
+                             Integer birthDate,
+                             Integer employmentDate,
+                             String position) {
+        Coach coach = new Coach();
+        coach.setFirstName(firstName);
+        coach.setLastName(lastName);
+        coach.setBirthDate(Date.from(Instant.ofEpochMilli(birthDate)));
+        coach.setEmploymentDate(Date.from(Instant.ofEpochMilli(employmentDate)));
+        coach.setPosition(position);
+
+        return coachRepository.save(coach); //metoda tworzy coach i zwraca jego ID
     }
 
 
-    public Coach findCoachById(Integer id) {
-        return coachRepository.findById(id);
+    public Coach findCoachById(Long id) {
+        return coachRepository.findOne(id);
     }
 
     public List<Coach> findAll() {
         return coachRepository.findAll();
     }
 
-    public Coach update(Integer coachId, String firstName, String lastName, Integer age) {
+    public Coach update(Long coachId, String firstName, String lastName) {
         /*
         nie ma create new(!!!( dlatego to jest referencja która wskazuje, już nas interesującyobiekt, przez nią zmodyfikujemy
-         obiekt który nas interesuje
-         */
-        /*repository normalnie tworzy kopie obiektów w bazie danych dlatego metoda modyfikuje pola obiektu , ale na koncu
+        obiekt który nas interesuje
+
+        repository normalnie tworzy kopie obiektów w bazie danych dlatego metoda modyfikuje pola obiektu , ale na koncu
         i tak podmienia te obiekty w bazie danych ( przez repository.update) w ten sposób repository zapewnia nie  bezpośrednie ingeorwanie w baze danych
 
-         przez repository nie działamy bezpośrednio na danych w bazie danych ale na ich kopiach/rteprezentacjach*/
-        Coach coach = coachRepository.findById(coachId);
-        if(firstName != null && !firstName.isEmpty()) {
+        przez repository nie działamy bezpośrednio na danych w bazie danych ale na ich kopiach/rteprezentacjach*/
+        Coach coach = coachRepository.findOne(coachId);
+        if (firstName != null && !firstName.isEmpty()) {
             coach.setFirstName(firstName);
         }
 
-        if(lastName != null && !lastName.isEmpty()) {
+        if (lastName != null && !lastName.isEmpty()) {
             coach.setLastName(lastName);
         }
 
-        if(age != null) {
-            coach.setAge(age);
-         }
-        return coachRepository.update(coach);
-    }
-
-    public void loadFromFile(String fileName) {
-        String absolutePath = DIRECTORY + fileName;
+        return coachRepository.save(coach);
     }
 }

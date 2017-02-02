@@ -1,23 +1,26 @@
 package org.szpax.brothers.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Date;
+
+@Entity
 public class Client {
 
-    private static int counter = 0;
+    @Id
+    private Long id;
 
-    private Integer id;
+    @Column
     private String firstName;
+
+    @Column
     private String lastName;
-    private Integer age;
 
-    public Client(String firstName, String lastName, Integer age) {
-        counter = counter + 1;
-        this.id = counter;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-    }
+    @Column
+    private Date birthDate;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -37,11 +40,11 @@ public class Client {
         this.lastName = lastName;
     }
 
-    public Integer getAge() {
-        return age;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 }

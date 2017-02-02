@@ -26,13 +26,18 @@ public class CoachController {
      *
      * @param firstName
      * @param lastName
-     * @param age
+     * @param birthDate
+     * @param employmentDate
+     * @param position
      * @return nowy, dodany trener
      */
     @RequestMapping("add")
-    public Coach add(@RequestParam String firstName, @RequestParam String lastName, @RequestParam Integer age) {
-        Integer coachId = coachService.createCoach(firstName, lastName, age);
-        return coachService.findCoachById(coachId);
+    public Coach add(@RequestParam String firstName,
+                     @RequestParam String lastName,
+                     @RequestParam Integer birthDate,
+                     @RequestParam Integer employmentDate,
+                     @RequestParam String position) {
+        return coachService.createCoach(firstName, lastName, birthDate, employmentDate, position);
     }
 
     /**
@@ -41,7 +46,7 @@ public class CoachController {
      * @return lista wszystkich trenerow
      */
     @RequestMapping("list")
-    public List<Coach> list()  {
+    public List<Coach> list() {
         return coachService.findAll();
     }
 
@@ -54,37 +59,35 @@ public class CoachController {
      * @return coach with id
      */
     @RequestMapping("{coachId}")
-    public Coach one(@PathVariable int coachId) {
+    public Coach one(@PathVariable Long coachId) {
         return coachService.findCoachById(coachId);
     }
 
     /**
-     *
      * za coachId podajemy jakis konkretny id. 1, 2, 3... : ) Adres przykladowy:
      * http://localhost:8080/coach/1/update
-     *
+     * <p>
      * potem dajemy parametry: ?firstName=noweImie&lastName=noweNazwisko&age=132
-     *
+     * <p>
      * Parametry nie sa wymagane, sprobuj np. wywolac:
-     *
+     * <p>
      * http://localhost:8080/coach/1/update?age=10
      *
      * @param coachId
      * @param firstName
      * @param lastName
-     * @param age
      * @return
      */
 
     @RequestMapping("{coachId}/update")
-    public Coach update(@PathVariable int coachId,
+    public Coach update(@PathVariable Long coachId,
                         @RequestParam(required = false) String firstName,
-                        @RequestParam(required = false) String lastName,
-                        @RequestParam(required = false) Integer age) {
-        return coachService.update(coachId, firstName, lastName, age);
+                        @RequestParam(required = false) String lastName) {
+        return coachService.update(coachId, firstName, lastName);
     }
+
     @RequestMapping("load")
-    public  void load(@RequestParam String file){
+    public void load(@RequestParam String file) {
 
 
     }
