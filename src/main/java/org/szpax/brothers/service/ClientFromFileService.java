@@ -14,12 +14,9 @@ import org.szpax.brothers.repository.CoachRepository;
 
 import java.util.List;
 
+@Service
 public class ClientFromFileService {
-@service02
-    @Autowired02
-    public ClientFromFileService(){
-
+    @Autowired
+    public ClientFromFileService() {
+    }
 }
-public Client getClientFormFile(String fileName)
-}
-

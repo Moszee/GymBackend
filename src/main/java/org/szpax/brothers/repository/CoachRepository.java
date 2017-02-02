@@ -55,7 +55,7 @@ public class CoachRepository {
         return toReturn;
     }
 
-    public Integer createCoach(Coach coach) {
+    public Integer insertCoach(Coach coach) {
         Coach existing = findById(coach.getId());
         if(existing != null)
             throw new IllegalArgumentException("This coach already exist!");

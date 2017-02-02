@@ -20,7 +20,8 @@ public class CoachService {
     }
 
     public Integer createCoach(String firstName, String lastName, Integer age) {
-        return coachRepository.createCoach(new Coach(firstName, lastName, age)); //metoda tworzy Coutch i zwraca jego ID
+        Coach coach = new Coach(firstName, lastName, age);
+        return coachRepository.insertCoach(coach); //metoda tworzy Coutch i zwraca jego ID
     }
 
 

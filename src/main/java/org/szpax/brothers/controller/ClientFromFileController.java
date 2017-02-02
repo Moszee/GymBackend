@@ -22,11 +22,12 @@ import java.util.List;
 
 
 public class ClientFromFileController {
-    ClientFromFileController(ClientFromFileService){
+    ClientFromFileController(){
 
     }
     public List<String> getFileName(String fileName){
-        this.fileName =
+//        this.fileName = "";
+        return null;
     }
 }
 
