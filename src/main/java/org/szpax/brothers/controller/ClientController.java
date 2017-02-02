@@ -11,7 +11,7 @@ import org.szpax.brothers.service.ClientService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/client)")
+@RequestMapping("/client")
 public class ClientController {
 
     private final ClientService clientService;
