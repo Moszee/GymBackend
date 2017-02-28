@@ -21,31 +21,31 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    @RequestMapping("add")
+    @RequestMapping("/add")
     public Client add(@RequestParam String firstName,
                       @RequestParam String lastName,
                       @RequestParam Integer birthDate) {
         return clientService.createClient(firstName, lastName, birthDate);
     }
 
-    @RequestMapping("list")
+    @RequestMapping("/list")
     public List<Client> list() {
         return clientService.findAll();
     }
 
-    @RequestMapping("{clientId}")
+    @RequestMapping("/{clientId}")
     public Client one(@PathVariable Long clientId) {
         return clientService.findClientById(clientId);
     }
 
-    @RequestMapping("{clientId}/update")
+    @RequestMapping("/{clientId}/update")
     public Client update(@PathVariable Long clientId,
                          @RequestParam(required = false) String firstName,
                          @RequestParam(required = false) String lastName) {
         return clientService.update(clientId, firstName, lastName);
     }
 
-    @RequestMapping("load")
+    @RequestMapping("/load")
     public void load(@RequestParam String file) {
     }
 }

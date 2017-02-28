@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Marcin on 15.02.2017.
  */
 @RestController
-@RequestMapping("Admin/Training")
+@RequestMapping("admin/training")
 public class TrainingController {
     private final TrainingService trainingService;
 

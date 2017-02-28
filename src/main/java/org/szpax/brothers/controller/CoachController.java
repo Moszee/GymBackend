@@ -31,7 +31,7 @@ public class CoachController {
      * @param position
      * @return nowy, dodany trener
      */
-    @RequestMapping("add")
+    @RequestMapping("/add")
     public Coach add(@RequestParam String firstName,
                      @RequestParam String lastName,
                      @RequestParam Integer birthDate,

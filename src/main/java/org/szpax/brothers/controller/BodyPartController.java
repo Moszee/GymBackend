@@ -13,14 +13,14 @@ import java.util.List;
  * Created by Marcin on 12.02.2017.
  */
 @RestController
-@RequestMapping("/Admin/BodyPart")
+@RequestMapping("/admin/body-part")
 public class BodyPartController {
     private final BodyPartService bodyPartService;
 
     @Autowired
     public BodyPartController(BodyPartService bodyPartService) { this.bodyPartService = bodyPartService;}
 
-    @RequestMapping("/Admin/add")
+    @RequestMapping("/add")
     public BodyPart add (@RequestParam String code,
                          @RequestParam String part)
     {return bodyPartService.createBodyPart(code,part);}

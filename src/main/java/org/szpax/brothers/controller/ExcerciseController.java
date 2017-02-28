@@ -15,7 +15,7 @@ import java.util.Scanner;
  * Created by Marcin on 16.02.2017.
  */
 @RestController
-@RequestMapping("/Admin/Excercise")
+@RequestMapping("/admin/excercise")
 public class ExcerciseController {
     private final ExcerciseService excerciseService;
 
@@ -29,7 +29,7 @@ public class ExcerciseController {
                          @RequestParam String bodyPartCode) {
         return excerciseService.createExcercise(excerciseName, bodyPartCode);
     }
-    @RequestMapping("{ExcerciseId}")
+    @RequestMapping("/{excerciseId}")
     public Excercise one (@PathVariable Long excerciseId) {return excerciseService.findExcerciseById(excerciseId);
     }
 
