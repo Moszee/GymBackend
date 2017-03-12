@@ -2,9 +2,7 @@ package org.szpax.brothers.model;
 
 import com.sun.javafx.beans.IDProperty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -12,7 +10,11 @@ import java.util.Date;
  */
 @Entity
 public class Training {
+
     @Id
+    @SequenceGenerator(name = "id_seq", sequenceName = "id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerateionType.SEQUENCE, generator = "id_seq")
+    @Column(updatable = false)
     private Long id;
     @Column
     private Integer clientId;
