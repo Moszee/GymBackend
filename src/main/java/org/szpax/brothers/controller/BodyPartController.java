@@ -25,7 +25,7 @@ public class BodyPartController {
                          @RequestParam String part)
     {return bodyPartService.createBodyPart(code,part);}
 
-    @RequestMapping("/List")
+    @RequestMapping("/list")
     public List<BodyPart> list() {return bodyPartService.findAll();}//aha zastanow sie skad brał sie blad gdy BodyPartService była napisany duza litera... cannot reslove from static contekst
 
 }

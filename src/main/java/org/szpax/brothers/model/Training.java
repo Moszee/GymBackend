@@ -13,7 +13,7 @@ public class Training {
 
     @Id
     @SequenceGenerator(name = "id_seq", sequenceName = "id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerateionType.SEQUENCE, generator = "id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_seq")
     @Column(updatable = false)
     private Long id;
     @Column

@@ -16,9 +16,12 @@ public class ExcerciseService {
     @Autowired
     public ExcerciseService (ExcerciseRepository excerciseRepository) {this.excerciseRepository = excerciseRepository;}
     public Excercise createExcercise ( String excerciseName, String bodyPartCode) {
+        if(bodyPartCode=="" || bodyPartCode==null){
+            throw new NullPointerException("bodyPartCode can not be NULL, or \"\" ");
+        }
         Excercise excercise = new Excercise(); // co to miało być ? nawiasy () jak przy metodzie tutaj zawsze dajemy ?
-        excercise.setExcerciseName();
-        excercise.setBodyPartCode();
+        excercise.setExcerciseName(excerciseName);
+        excercise.setBodyPartCode(bodyPartCode);
         return excerciseRepository.save(excercise);
     }
     public List<Excercise> findAll() {return excerciseRepository.findAll();}
