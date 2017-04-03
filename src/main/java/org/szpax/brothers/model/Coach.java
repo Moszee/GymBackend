@@ -7,8 +7,8 @@ import java.util.Date;
 public class Coach {
 
     @Id
-    @SequenceGenerator(name = "id_seq", sequenceName = "id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_seq")
+    @SequenceGenerator(name = "coach_id_seq", sequenceName = "coach_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "coach_id_seq")
     @Column(updatable = false)
     private Long id;
 

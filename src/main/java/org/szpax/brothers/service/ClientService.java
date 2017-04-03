@@ -35,7 +35,7 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
-    public Client findClientById(Long id) {
+    public Client findClientById(Integer id) {
         return clientRepository.findOne(id);
     }
 
@@ -43,7 +43,7 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-    public Client update(Long clientId, String firstName, String lastName) {
+    public Client update(Integer clientId, String firstName, String lastName) {
         Client client = clientRepository.findOne(clientId);
         if (firstName != null && !firstName.isEmpty()) {
             client.setFirstName(firstName);

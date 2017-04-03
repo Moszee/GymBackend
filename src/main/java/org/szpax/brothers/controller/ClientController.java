@@ -34,12 +34,12 @@ public class ClientController {
     }
 
     @RequestMapping("/{clientId}")
-    public Client one(@PathVariable Long clientId) {
+    public Client one(@PathVariable Integer clientId) {
         return clientService.findClientById(clientId);
     }
 
     @RequestMapping("/{clientId}/update")
-    public Client update(@PathVariable Long clientId,
+    public Client update(@PathVariable Integer clientId,
                          @RequestParam(required = false) String firstName,
                          @RequestParam(required = false) String lastName) {
         return clientService.update(clientId, firstName, lastName);

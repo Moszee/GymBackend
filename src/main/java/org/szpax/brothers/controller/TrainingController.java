@@ -1,15 +1,15 @@
 package org.szpax.brothers.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.szpax.brothers.model.Training;
-import org.szpax.brothers.service.TrainingService;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.web.bind.annotation.PathVariable;
+        import org.springframework.web.bind.annotation.RequestMapping;
+        import org.springframework.web.bind.annotation.RequestParam;
+        import org.springframework.web.bind.annotation.RestController;
+        import org.szpax.brothers.model.Training;
+        import org.szpax.brothers.service.TrainingService;
 
-import java.util.Date;
-import java.util.List;
+        import java.util.Date;
+        import java.util.List;
 
 /**
  * Created by Marcin on 15.02.2017.

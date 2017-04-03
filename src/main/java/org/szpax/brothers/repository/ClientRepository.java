@@ -7,7 +7,7 @@ import org.szpax.brothers.model.Client;
 import java.util.List;
 
 @Repository
-public interface ClientRepository extends CrudRepository<Client, Long> {
+public interface ClientRepository extends CrudRepository<Client, Integer> {
 
     List<Client> findAll();
 

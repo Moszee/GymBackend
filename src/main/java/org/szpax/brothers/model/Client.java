@@ -4,14 +4,14 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "client")
 public class Client {
 
     @Id
     @SequenceGenerator(name = "client_id_seq", sequenceName = "client_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client_id_seq")
     @Column(updatable = false)
-
-    private Long id;
+    private Integer id; /// dlaczego to jest nie użyte???
 
     @Column
     private String firstName;
@@ -22,7 +22,7 @@ public class Client {
     @Column
     private Date birthDate;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

@@ -12,9 +12,10 @@ import java.util.Date;
 public class Training {
 
     @Id
-    @SequenceGenerator(name = "id_seq", sequenceName = "id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_seq")
+    @SequenceGenerator(name = " training_id_seq", sequenceName = " training_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = " training_id_seq")
     @Column(updatable = false)
+
     private Long id;
     @Column
     private Integer clientId;
