@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.szpax.brothers.model.Client;
 import org.szpax.brothers.service.ClientService;
 
+import java.sql.Date;
+import java.time.Instant;
 import java.util.List;
 
 @RestController
@@ -25,7 +27,7 @@ public class ClientController {
     public Client add(@RequestParam String firstName,
                       @RequestParam String lastName,
                       @RequestParam Integer birthDate) {
-        return clientService.createClient(firstName, lastName, birthDate);
+        return clientService.createClient(firstName, lastName, Date.from(Instant.ofEpochMilli(birthDate)));
     }
 
     @RequestMapping("/list")

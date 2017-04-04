@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 import org.szpax.brothers.model.Client;
 import org.szpax.brothers.repository.ClientRepository;
 
-import java.sql.Date;
-import java.time.Instant;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 // czy tu nie powinno być coś co się inaczej troche nazywa od naszego @service z klasy CoachService?
@@ -27,11 +25,11 @@ public class ClientService {
 
     //W tym miejscu Odbieramy Id od Clienta którego podajemy do metody creatClient w clientRepository(new Client) utworzonego
     //wg parametrów podanych tutaj poniżej
-    public Client createClient(String firstName, String lastName, Integer birthDate) {
+    public Client createClient(String firstName, String lastName, Date birthDate) {
         Client client = new Client();
         client.setFirstName(firstName);
         client.setLastName(lastName);
-        client.setBirthDate(Date.from(Instant.ofEpochMilli(birthDate)));
+        client.setBirthDate(birthDate);
         return clientRepository.save(client);
     }
 
