@@ -1,5 +1,7 @@
 package org.szpax.brothers.model;
 
+import com.sun.javafx.beans.IDProperty;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -19,36 +21,16 @@ public class Training {
     private Integer clientId;
     @Column
     private Date birthDate;
-    @Column
+    @Column(name = "time_of_day_code")
     private String timeOfTheDayCode;
 
-    public Long getId() {
-        return id;
-    }
-
-    public int getClientId() {
-        return clientId;
-    }
-
-    public void setClientId() {
-        this.clientId = clientId;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate() {
-        this.birthDate = birthDate;
-    }
-
-    public String getTimeOfTheDayCode() {
-        return timeOfTheDayCode;
-    }
-
-    public void setTimeOfTheDayCode() {
-        this.timeOfTheDayCode = timeOfTheDayCode;
-    }
+    public Long getId(){return id;}
+    public int getClientId() {return clientId;}
+    public void setClientId(Integer clientId) {this.clientId = clientId;}
+    public Date getBirthDate() {return  birthDate;}
+    public void setBirthDate (Date birthDate) {this.birthDate = birthDate;}
+    public String getTimeOfTheDayCode() {return timeOfTheDayCode;}
+    public void setTimeOfTheDayCode(String timeOfTheDayCode) {this.timeOfTheDayCode = timeOfTheDayCode;}
 
 }
 

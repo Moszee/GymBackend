@@ -1,6 +1,7 @@
 package org.szpax.brothers.controller;
 
         import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.format.annotation.DateTimeFormat;
         import org.springframework.web.bind.annotation.PathVariable;
         import org.springframework.web.bind.annotation.RequestMapping;
         import org.springframework.web.bind.annotation.RequestParam;
@@ -26,9 +27,10 @@ public class TrainingController {
     public List<Training> list() {return trainingService.findAll();}
     @RequestMapping("/add")
     public Training add (@RequestParam Integer clientId,
-                         @RequestParam Date birthDate,
+                         @RequestParam @DateTimeFormat(pattern="MMddyyyy") Date birthDate,
                          @RequestParam String timeOfTheDayCode) {
-        return trainingService.createTraining(clientId,birthDate,timeOfTheDayCode);
+        Training training = trainingService.createTraining(clientId, birthDate, timeOfTheDayCode);
+        return training;
     }
 
     @RequestMapping("{trainingId}")

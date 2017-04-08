@@ -23,9 +23,9 @@ public class TrainingService {
 
     public Training createTraining(Integer clientId, Date birthDate, String timeOfTheDayCode) {
         Training training = new Training();
-        training.setClientId();
-        training.setBirthDate();
-        training.setTimeOfTheDayCode();
+        training.setClientId(clientId);
+        training.setBirthDate(birthDate);
+        training.setTimeOfTheDayCode(timeOfTheDayCode);
         return trainingRepository.save(training);
     }
     public List<Training> findAll() {return trainingRepository.findAll();}
