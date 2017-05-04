@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Entity
 public class TrainingExcercise {
     @Id
-    @SequenceGenerator(name = "traning_excercise_id_seq", sequenceName = "traning_excercise_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "traning_excercise_id_seq")
+    @SequenceGenerator(name = "training_excercise_id_seq", sequenceName = "training_excercise_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "training_excercise_id_seq")
     @Column(updatable = false)
     private Integer id;
 
@@ -22,12 +22,9 @@ public class TrainingExcercise {
     @Column
     private Integer numberOfRepeats;
 
-    @Column
     public Integer getId() {
         return id;
     }
-
-    ;
 
     public Integer getNumberOfRepeats() {
         return numberOfRepeats;
