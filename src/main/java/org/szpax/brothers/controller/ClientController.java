@@ -27,7 +27,7 @@ public class ClientController {
     public Client add(@RequestParam String firstName,
                       @RequestParam String lastName,
                       @RequestParam Integer birthDate) {
-        return clientService.createClient(firstName, lastName, Date.from(Instant.ofEpochMilli(birthDate)));
+        return clientService.createClient(firstName, lastName, Date.from(Instant.ofEpochMilli(birthDate))); //06.05.2017 -probowałem dostac ie do srodka i nie wiem czy nie pomylilem skrotow klawiszowych i nie nakopalem
     }
 
     @RequestMapping("/list")
