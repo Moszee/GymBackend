@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.szpax.brothers.model.Coach;
 import org.szpax.brothers.service.CoachService;
 
+import java.sql.Date;
+import java.time.Instant;
 import java.util.List;
 
 @RestController
@@ -37,7 +39,7 @@ public class CoachController {
                      @RequestParam Integer birthDate,
                      @RequestParam Integer employmentDate,
                      @RequestParam String position) {
-        return coachService.createCoach(firstName, lastName, birthDate, employmentDate, position);
+        return coachService.createCoach(firstName, lastName, Date.from(Instant.ofEpochMilli(birthDate)), Date.from(Instant.ofEpochMilli(employmentDate)), position);
     }
 
     /**

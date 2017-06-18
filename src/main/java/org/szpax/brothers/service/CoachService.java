@@ -23,14 +23,14 @@ public class CoachService {
 
     public Coach createCoach(String firstName,
                              String lastName,
-                             Integer birthDate,
-                             Integer employmentDate,
+                             Date birthDate,
+                             Date employmentDate,
                              String position) {
         Coach coach = new Coach();
         coach.setFirstName(firstName);
         coach.setLastName(lastName);
-        coach.setBirthDate(Date.from(Instant.ofEpochMilli(birthDate)));
-        coach.setEmploymentDate(Date.from(Instant.ofEpochMilli(employmentDate)));
+        coach.setBirthDate(birthDate);
+        coach.setEmploymentDate(employmentDate);
         coach.setPosition(position);
 
         return coachRepository.save(coach); //metoda tworzy coach i zwraca jego ID
