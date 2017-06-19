@@ -15,7 +15,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  * Created by Marcin on 22.05.2017.
  */
 @Controller
-@RequestMapping("/freemarker/client")
+@RequestMapping("/freemarker/BodyPart")
 public class BodyPartFreemarkerController {
 
     private BodyPartService bodyPartService;
