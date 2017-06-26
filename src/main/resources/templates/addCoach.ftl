@@ -63,16 +63,8 @@
                     <input id="position" type="text" name="position" class="form-control">
          </div>
 
-         <button type="submit" class="btn btn-default">Sace</button>
+         <button type="submit" class="btn btn-default">Save</button>
          </form>
     </div>
 </div>
-</div>
 </body>
-
-</html>
-//<body>
-//<#list animals as item>
-//    ${item} is an animal!
-//</#list>
-//</body>
