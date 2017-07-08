@@ -15,16 +15,17 @@
 <body>
 <div class="container">
     <div class="page-header">
-        <h1>Clients administration</h1>
+        <h1>Coachs administration</h1>
     </div>
     <div class="row">
         <div class=col-md-2">
-            <div class="panel-heading">
-            <h3 class="panel-title">Coach menu</h3>
-            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Coach menu</h3>
+                </div>
             <div class="panel-body">
                 <ul class ="nav nav-pills">
-                    <li role="presentatnion" class="activr">
+                    <li role="presentatnion" class="activ">
                         <a href="/freemarker/coach/add">
                             Add new coach
                         </a>
@@ -66,5 +67,6 @@
          <button type="submit" class="btn btn-default">Save</button>
          </form>
     </div>
+</div>
 </div>
 </body>

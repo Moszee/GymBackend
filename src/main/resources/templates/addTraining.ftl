@@ -14,7 +14,7 @@
 <body>
 <div class="container">
     <div class="page-header">
-        <ha>Training administration</h1>
+        <h1>Training administration</h1>
     </div>
     <div class="row">
         <div class="col-md-2">
